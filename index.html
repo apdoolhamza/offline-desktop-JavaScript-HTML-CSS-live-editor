@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-NG">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Html, Css & Js Live Editor Project</title>
+  <!--Importing Css file -->
+        <link rel="stylesheet" href="css/main.css">   
+    <!--Importing font awesome icons file-->
+     <link rel="stylesheet" href="font/fontawesome-free-6.1.1-web/css/all.css">
+</head>
+<body>
+
+<header>
+<P id="setting-pop"><i class="fas fa-gear"></i></P>
+<p class="files-names"><span class="files-names-note">HTML File</span> <i class="fas fa-chevron-down"></i></p>
+
+<!-- files name container -->
+<div id="files-names-list">
+<p class="html-file">HTML File</p>
+<hr>
+<p class="css-file">CSS File</p>
+<hr>
+<p class="js-file">JS File</p>
+</div>
+
+<!-- devices list container -->
+<p class="server-divice"><span class="server-divice-note">Desktop</span> <i class="fas fa-chevron-down"></i></p>
+<div id="server-divice-frame">
+<p id="server-desktop-divice">Desktop</p>
+<hr>
+<p id="server-mobile-divice">Mobile</p>
+<hr>
+<!-- Refresh the page if click on external link(like if empty page appear) -->
+<p onclick="saveRefresh()">Refresh</p>
+</div>
+
+<!-- live server btn -->
+<div class="all-head-btn">
+<p id="liver-server-off">Live Server<i class="fas fa-eye-slash"></i></p>
+<p id="liver-server-on" style="display:none;color:#d9d9d9;">Live Server<i class="fas fa-eye"></i></p>
+</div>
+
+<!-- editor MenuBar -->
+<div class="menu-bar" id="menu-bar-list">
+<ul>
+  <!-- New Html file -->
+<li  id="openhtml" onclick="opennewhtmlfile();">New File</li>
+  <!-- New Css file -->
+<li  id="opencss" onclick="opennewcssfile();" style="display:none;">New File</li>
+  <!-- New Js file -->
+<li  id="openjs" onclick="opennewjsfile();" style="display:none;">New File</li>
+
+<!-- upload new file button -->
+<label for="fileToLoad">
+  <input onchange="showwareload()" type="file" accept=".html,.css,.js" id="fileToLoad" class="fileToLoadaccept" style="display:none;">
+<li onclick="hideitems();">Open File...</li>
+</label>
+<hr>
+
+<!-- save any currant file on browser local storage buttons -->
+<li id="savehtml" onclick="saveehtml()">Save</li>
+<li id="savecss"  onclick="saveecss()" style="display:none;">Save</li>
+<li id="savejs"   onclick="saveejs()" style="display:none;">Save</li>
+
+<!-- download any currant file to local device -->
+<li id="saveashtml" onclick="savehtmlFile()">Save As...</li>
+<li id="saveascss" onclick="savecssFile()" style="display:none;">Save As...</li>
+<li id="saveasjs" onclick="savejsFile()" style="display:none;">Save As...</li>
+<hr>
+<li onclick="hideitems();">Exit</li>
+</ul>
+</div>
+</header>
+
+<!-- save file as pop-up Container-->
+<div class="save-as-pop-up" style="display:none;">
+  <div class="save-as-pop-up-container">
+<p>Save As...</p>
+<input type="text" placeholder="File Name">
+<br>
+
+<div class="popup-container-buttons">
+
+<button onclick="hidewhareloadpopup();">Cancel</button>
+
+<button id="showsveashtmlbtn" onclick="sveashtmlbtn()">Save</button>
+<button id="showsveascssbtn" onclick="sveascssbtn()" style="display:none;">Save</button>
+<button id="showsveasjsbtn" onclick="sveasjsbtn()" style="display:none;">Save</button>
+</div>
+</div>
+</div>
+
+<!-- editor wrapper -->
+<div class="container">
+  <!-- editors codes counter -->
+<p id="counterBack"><div id="counter"></div></p>
+<!-- html code editor -->
+  <textarea id="editor" onclick="hideitems();" spellcheck="false" contenteditable="true"></textarea>
+<!-- css code editor -->
+<textarea id="css" style="display:none;" spellcheck="false" onclick="hideitems();" contenteditable="true"></textarea>
+<!-- js code editor -->
+<textarea id="js" style="display:none;" spellcheck="false" onclick="hideitems();" contenteditable="true"></textarea>
+
+<!-- editors output frames-->
+<div class="iframe-frame">
+<img class="mobile-frame-img" src="imgs/androd-frame.jpeg">
+
+<iframe id="mobileview" class="mobileviewiframe"></iframe>
+<iframe id="desktopview" class="desktopviewiframe"></iframe>
+</div>
+
+<!-- create & load file as -->
+<div class="whare-load-popup" style="display:none;">
+  <div class="whare-load-popup-container">
+
+<p>Load As</p><select id="files-select">
+<option value="htmlfile">HTML File</option>
+<option value="cssfile">CSS File</option>
+<option value="jsfile">JS File</option>
+</select>
+<br>
+
+<div class="popup-container-buttons">
+<button onclick="hidewhareloadpopup();">Cancel</button>
+
+<button onclick="loadFileAsText()">Load File</button>
+</div>
+</div>
+</div>
+
+<!-- asking for, want saving currant file, pop-up wrapper -->
+<div class="save-currant-file-popup" style="display:none;">
+
+  <div class="save-currant-file-container">
+  <p>Do You Want Save The Currant File?</p>
+  <div class="popup-container-buttons">
+<button id="OpenHideNewhtml" onclick="openhidenewhtmlfile();">Cancel</button>
+<button id="OpenSaveNewhtml" onclick="opensavenewhtmlfile()">Save</button>
+
+<button id="OpenHideNewcss" onclick="openhidenewcssfile();" style="display:none;">Cancel</button>
+<button id="OpenSaveNewcss" onclick="opensavenewcssfile()" style="display:none;">Save</button>
+
+<button id="OpenHideNewjs" onclick="openhidenewjsfile();" style="display:none;">Cancel</button>
+<button id="OpenSaveNewjs" onclick="opensavenewjsfile()" style="display:none;">Save</button>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- js file -->
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
